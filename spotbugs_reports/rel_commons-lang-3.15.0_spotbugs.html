@@ -1,0 +1,1490 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta charset="UTF-8"/>
+      <title>SpotBugs Report</title>
+      <style type="text/css">
+		.tablerow0 {
+			background: #EEEEEE;
+		}
+
+		.tablerow1 {
+			background: white;
+		}
+
+		.detailrow0 {
+			background: #EEEEEE;
+		}
+
+		.detailrow1 {
+			background: white;
+		}
+
+		.tableheader {
+			background: #b9b9fe;
+			font-size: larger;
+		}
+
+		.tablerow0:hover, .tablerow1:hover {
+			background: #aaffaa;
+		}
+
+		.priority-1 {
+				color: red;
+				font-weight: bold;
+		}
+		.priority-2 {
+				color: orange;
+				font-weight: bold;
+		}
+		.priority-3 {
+				color: green;
+				font-weight: bold;
+		}
+		.priority-4 {
+				color: blue;
+				font-weight: bold;
+		}
+		</style>
+      <script type="text/javascript">
+			function toggleRow(elid) {
+				if (document.getElementById) {
+					element = document.getElementById(elid);
+					if (element) {
+						if (element.style.display == 'none') {
+							element.style.display = 'block';
+							//window.status = 'Toggle on!';
+						} else {
+							element.style.display = 'none';
+							//window.status = 'Toggle off!';
+						}
+					}
+				}
+			}
+		</script>
+   </head>
+   <body>
+      <h1>
+         <a href="https://spotbugs.github.io/">SpotBugs</a> Report</h1>
+      <h2>Project Information</h2>
+      <p>Project: 
+		</p>
+      <p>SpotBugs version: 4.8.6</p>
+      <p>Code analyzed:</p>
+      <ul>
+         <li>target/classes</li>
+      </ul>
+      <p>
+         <br/>
+         <br/>
+      </p>
+      <h2>Metrics</h2>
+      <p>22346 lines of code analyzed,
+	in 395 classes, 
+	in 18 packages.</p>
+      <table width="500" cellpadding="5" cellspacing="2">
+         <tr class="tableheader">
+            <th align="left">Metric</th>
+            <th align="right">Total</th>
+            <th align="right">Density*</th>
+         </tr>
+         <tr class="tablerow0">
+            <td>High Priority Warnings</td>
+            <td align="right">5</td>
+            <td align="right">0.22</td>
+         </tr>
+         <tr class="tablerow1">
+            <td>Medium Priority Warnings</td>
+            <td align="right">69</td>
+            <td align="right">3.09</td>
+         </tr>
+         <tr class="$totalClass">
+            <td>
+               <b>Total Warnings</b>
+            </td>
+            <td align="right">
+               <b>74</b>
+            </td>
+            <td align="right">
+               <b>3.31</b>
+            </td>
+         </tr>
+      </table>
+      <p>
+         <i>(* Defects per Thousand lines of non-commenting source statements)</i>
+      </p>
+      <p>
+         <br/>
+         <br/>
+      </p>
+      <h2>Contents</h2>
+      <ul>
+         <li>
+            <a href="#Warnings_BAD_PRACTICE">Bad practice Warnings</a>
+         </li>
+         <li>
+            <a href="#Warnings_CORRECTNESS">Correctness Warnings</a>
+         </li>
+         <li>
+            <a href="#Warnings_MALICIOUS_CODE">Malicious code vulnerability Warnings</a>
+         </li>
+         <li>
+            <a href="#Warnings_STYLE">Dodgy code Warnings</a>
+         </li>
+         <li>
+            <a href="#Details">Details</a>
+         </li>
+      </ul>
+      <h1>Summary</h1>
+      <table width="500" cellpadding="5" cellspacing="2">
+         <tr class="tableheader">
+            <th align="left">Warning Type</th>
+            <th align="right">Number</th>
+         </tr>
+         <tr class="tablerow0">
+            <td>
+               <a href="#Warnings_BAD_PRACTICE">Bad practice Warnings</a>
+            </td>
+            <td align="right">35</td>
+         </tr>
+         <tr class="tablerow1">
+            <td>
+               <a href="#Warnings_CORRECTNESS">Correctness Warnings</a>
+            </td>
+            <td align="right">5</td>
+         </tr>
+         <tr class="tablerow0">
+            <td>
+               <a href="#Warnings_MALICIOUS_CODE">Malicious code vulnerability Warnings</a>
+            </td>
+            <td align="right">17</td>
+         </tr>
+         <tr class="tablerow1">
+            <td>
+               <a href="#Warnings_STYLE">Dodgy code Warnings</a>
+            </td>
+            <td align="right">17</td>
+         </tr>
+         <tr class="tablerow0">
+            <td>
+               <b>Total</b>
+            </td>
+            <td align="right">
+               <b>74</b>
+            </td>
+         </tr>
+      </table>
+      <h1>Warnings</h1>
+      <p>Click on a warning row to see full context information.</p>
+      <h2>
+         <a name="Warnings_BAD_PRACTICE">Bad practice Warnings</a>
+      </h2>
+      <table class="warningtable" width="100%" cellspacing="0">
+         <tr class="tableheader">
+            <th align="left">Code</th>
+            <th align="left">Warning</th>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e808');">
+            <td>
+               <span class="priority-1">CN</span>
+            </td>
+            <td>org.apache.commons.lang3.text.StrTokenizer.clone() does not call super.clone()</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e808" style="display: none;">
+                  <a href="#CN_IDIOM_NO_SUPER_CALL">Bug type CN_IDIOM_NO_SUPER_CALL (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.text.StrTokenizer<br/>In method org.apache.commons.lang3.text.StrTokenizer.clone()<br/>has subclass org.apache.commons.lang3.text.StrBuilder$StrBuilderTokenizer<br/>At StrTokenizer.java:[lines 448-450]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e308');">
+            <td>
+               <span class="priority-2">CT</span>
+            </td>
+            <td>Exception thrown in class org.apache.commons.lang3.ThreadUtils$ThreadIdPredicate at new org.apache.commons.lang3.ThreadUtils$ThreadIdPredicate(long) will leave the constructor. The object under construction remains partially initialized and may be vulnerable to Finalizer attacks.</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e308" style="display: none;">
+                  <a href="#CT_CONSTRUCTOR_THROW">Bug type CT_CONSTRUCTOR_THROW (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.ThreadUtils$ThreadIdPredicate<br/>In method new org.apache.commons.lang3.ThreadUtils$ThreadIdPredicate(long)<br/>At ThreadUtils.java:[line 136]<br/>At ThreadUtils.java:[line 136]</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e357');">
+            <td>
+               <span class="priority-2">CT</span>
+            </td>
+            <td>Exception thrown in class org.apache.commons.lang3.builder.ReflectionToStringBuilder at new org.apache.commons.lang3.builder.ReflectionToStringBuilder(Object, ToStringStyle, StringBuffer, Class, boolean, boolean) will leave the constructor. The object under construction remains partially initialized and may be vulnerable to Finalizer attacks.</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e357" style="display: none;">
+                  <a href="#CT_CONSTRUCTOR_THROW">Bug type CT_CONSTRUCTOR_THROW (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.builder.ReflectionToStringBuilder<br/>In method new org.apache.commons.lang3.builder.ReflectionToStringBuilder(Object, ToStringStyle, StringBuffer, Class, boolean, boolean)<br/>At ReflectionToStringBuilder.java:[line 554]<br/>At ReflectionToStringBuilder.java:[line 554]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e371');">
+            <td>
+               <span class="priority-2">CT</span>
+            </td>
+            <td>Exception thrown in class org.apache.commons.lang3.builder.ReflectionToStringBuilder at new org.apache.commons.lang3.builder.ReflectionToStringBuilder(Object, ToStringStyle, StringBuffer, Class, boolean, boolean, boolean) will leave the constructor. The object under construction remains partially initialized and may be vulnerable to Finalizer attacks.</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e371" style="display: none;">
+                  <a href="#CT_CONSTRUCTOR_THROW">Bug type CT_CONSTRUCTOR_THROW (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.builder.ReflectionToStringBuilder<br/>In method new org.apache.commons.lang3.builder.ReflectionToStringBuilder(Object, ToStringStyle, StringBuffer, Class, boolean, boolean, boolean)<br/>At ReflectionToStringBuilder.java:[line 585]<br/>At ReflectionToStringBuilder.java:[line 585]</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e469');">
+            <td>
+               <span class="priority-2">CT</span>
+            </td>
+            <td>Exception thrown in class org.apache.commons.lang3.concurrent.BackgroundInitializer at new org.apache.commons.lang3.concurrent.BackgroundInitializer() will leave the constructor. The object under construction remains partially initialized and may be vulnerable to Finalizer attacks.</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e469" style="display: none;">
+                  <a href="#CT_CONSTRUCTOR_THROW">Bug type CT_CONSTRUCTOR_THROW (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.concurrent.BackgroundInitializer<br/>In method new org.apache.commons.lang3.concurrent.BackgroundInitializer()<br/>At BackgroundInitializer.java:[line 182]<br/>At BackgroundInitializer.java:[line 182]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e483');">
+            <td>
+               <span class="priority-2">CT</span>
+            </td>
+            <td>Exception thrown in class org.apache.commons.lang3.concurrent.BackgroundInitializer at new org.apache.commons.lang3.concurrent.BackgroundInitializer(ExecutorService) will leave the constructor. The object under construction remains partially initialized and may be vulnerable to Finalizer attacks.</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e483" style="display: none;">
+                  <a href="#CT_CONSTRUCTOR_THROW">Bug type CT_CONSTRUCTOR_THROW (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.concurrent.BackgroundInitializer<br/>In method new org.apache.commons.lang3.concurrent.BackgroundInitializer(ExecutorService)<br/>At BackgroundInitializer.java:[line 196]<br/>At BackgroundInitializer.java:[line 196]</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e498');">
+            <td>
+               <span class="priority-2">CT</span>
+            </td>
+            <td>Exception thrown in class org.apache.commons.lang3.concurrent.BackgroundInitializer at new org.apache.commons.lang3.concurrent.BackgroundInitializer(FailableSupplier, FailableConsumer, ExecutorService) will leave the constructor. The object under construction remains partially initialized and may be vulnerable to Finalizer attacks.</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e498" style="display: none;">
+                  <a href="#CT_CONSTRUCTOR_THROW">Bug type CT_CONSTRUCTOR_THROW (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.concurrent.BackgroundInitializer<br/>In method new org.apache.commons.lang3.concurrent.BackgroundInitializer(FailableSupplier, FailableConsumer, ExecutorService)<br/>At BackgroundInitializer.java:[line 208]<br/>At BackgroundInitializer.java:[line 208]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e512');">
+            <td>
+               <span class="priority-2">CT</span>
+            </td>
+            <td>Exception thrown in class org.apache.commons.lang3.event.EventListenerSupport at new org.apache.commons.lang3.event.EventListenerSupport(Class) will leave the constructor. The object under construction remains partially initialized and may be vulnerable to Finalizer attacks.</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e512" style="display: none;">
+                  <a href="#CT_CONSTRUCTOR_THROW">Bug type CT_CONSTRUCTOR_THROW (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.event.EventListenerSupport<br/>In method new org.apache.commons.lang3.event.EventListenerSupport(Class)<br/>At EventListenerSupport.java:[line 197]<br/>At EventListenerSupport.java:[line 197]</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e526');">
+            <td>
+               <span class="priority-2">CT</span>
+            </td>
+            <td>Exception thrown in class org.apache.commons.lang3.event.EventListenerSupport at new org.apache.commons.lang3.event.EventListenerSupport(Class, ClassLoader) will leave the constructor. The object under construction remains partially initialized and may be vulnerable to Finalizer attacks.</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e526" style="display: none;">
+                  <a href="#CT_CONSTRUCTOR_THROW">Bug type CT_CONSTRUCTOR_THROW (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.event.EventListenerSupport<br/>In method new org.apache.commons.lang3.event.EventListenerSupport(Class, ClassLoader)<br/>At EventListenerSupport.java:[line 219]<br/>At EventListenerSupport.java:[line 219]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e625');">
+            <td>
+               <span class="priority-2">CT</span>
+            </td>
+            <td>Exception thrown in class org.apache.commons.lang3.mutable.MutableByte at new org.apache.commons.lang3.mutable.MutableByte(String) will leave the constructor. The object under construction remains partially initialized and may be vulnerable to Finalizer attacks.</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e625" style="display: none;">
+                  <a href="#CT_CONSTRUCTOR_THROW">Bug type CT_CONSTRUCTOR_THROW (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.mutable.MutableByte<br/>In method new org.apache.commons.lang3.mutable.MutableByte(String)<br/>At MutableByte.java:[line 75]<br/>At MutableByte.java:[line 75]</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e639');">
+            <td>
+               <span class="priority-2">CT</span>
+            </td>
+            <td>Exception thrown in class org.apache.commons.lang3.mutable.MutableDouble at new org.apache.commons.lang3.mutable.MutableDouble(String) will leave the constructor. The object under construction remains partially initialized and may be vulnerable to Finalizer attacks.</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e639" style="display: none;">
+                  <a href="#CT_CONSTRUCTOR_THROW">Bug type CT_CONSTRUCTOR_THROW (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.mutable.MutableDouble<br/>In method new org.apache.commons.lang3.mutable.MutableDouble(String)<br/>At MutableDouble.java:[line 73]<br/>At MutableDouble.java:[line 73]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e654');">
+            <td>
+               <span class="priority-2">CT</span>
+            </td>
+            <td>Exception thrown in class org.apache.commons.lang3.mutable.MutableFloat at new org.apache.commons.lang3.mutable.MutableFloat(String) will leave the constructor. The object under construction remains partially initialized and may be vulnerable to Finalizer attacks.</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e654" style="display: none;">
+                  <a href="#CT_CONSTRUCTOR_THROW">Bug type CT_CONSTRUCTOR_THROW (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.mutable.MutableFloat<br/>In method new org.apache.commons.lang3.mutable.MutableFloat(String)<br/>At MutableFloat.java:[line 73]<br/>At MutableFloat.java:[line 73]</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e668');">
+            <td>
+               <span class="priority-2">CT</span>
+            </td>
+            <td>Exception thrown in class org.apache.commons.lang3.mutable.MutableInt at new org.apache.commons.lang3.mutable.MutableInt(String) will leave the constructor. The object under construction remains partially initialized and may be vulnerable to Finalizer attacks.</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e668" style="display: none;">
+                  <a href="#CT_CONSTRUCTOR_THROW">Bug type CT_CONSTRUCTOR_THROW (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.mutable.MutableInt<br/>In method new org.apache.commons.lang3.mutable.MutableInt(String)<br/>At MutableInt.java:[line 75]<br/>At MutableInt.java:[line 75]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e682');">
+            <td>
+               <span class="priority-2">CT</span>
+            </td>
+            <td>Exception thrown in class org.apache.commons.lang3.mutable.MutableLong at new org.apache.commons.lang3.mutable.MutableLong(String) will leave the constructor. The object under construction remains partially initialized and may be vulnerable to Finalizer attacks.</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e682" style="display: none;">
+                  <a href="#CT_CONSTRUCTOR_THROW">Bug type CT_CONSTRUCTOR_THROW (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.mutable.MutableLong<br/>In method new org.apache.commons.lang3.mutable.MutableLong(String)<br/>At MutableLong.java:[line 75]<br/>At MutableLong.java:[line 75]</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e696');">
+            <td>
+               <span class="priority-2">CT</span>
+            </td>
+            <td>Exception thrown in class org.apache.commons.lang3.mutable.MutableShort at new org.apache.commons.lang3.mutable.MutableShort(String) will leave the constructor. The object under construction remains partially initialized and may be vulnerable to Finalizer attacks.</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e696" style="display: none;">
+                  <a href="#CT_CONSTRUCTOR_THROW">Bug type CT_CONSTRUCTOR_THROW (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.mutable.MutableShort<br/>In method new org.apache.commons.lang3.mutable.MutableShort(String)<br/>At MutableShort.java:[line 75]<br/>At MutableShort.java:[line 75]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e722');">
+            <td>
+               <span class="priority-2">CT</span>
+            </td>
+            <td>Exception thrown in class org.apache.commons.lang3.text.ExtendedMessageFormat at new org.apache.commons.lang3.text.ExtendedMessageFormat(String, Locale) will leave the constructor. The object under construction remains partially initialized and may be vulnerable to Finalizer attacks.</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e722" style="display: none;">
+                  <a href="#CT_CONSTRUCTOR_THROW">Bug type CT_CONSTRUCTOR_THROW (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.text.ExtendedMessageFormat<br/>In method new org.apache.commons.lang3.text.ExtendedMessageFormat(String, Locale)<br/>At ExtendedMessageFormat.java:[line 111]<br/>At ExtendedMessageFormat.java:[line 111]</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e736');">
+            <td>
+               <span class="priority-2">CT</span>
+            </td>
+            <td>Exception thrown in class org.apache.commons.lang3.text.ExtendedMessageFormat at new org.apache.commons.lang3.text.ExtendedMessageFormat(String, Locale, Map) will leave the constructor. The object under construction remains partially initialized and may be vulnerable to Finalizer attacks.</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e736" style="display: none;">
+                  <a href="#CT_CONSTRUCTOR_THROW">Bug type CT_CONSTRUCTOR_THROW (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.text.ExtendedMessageFormat<br/>In method new org.apache.commons.lang3.text.ExtendedMessageFormat(String, Locale, Map)<br/>At ExtendedMessageFormat.java:[line 126]<br/>At ExtendedMessageFormat.java:[line 126]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e750');">
+            <td>
+               <span class="priority-2">CT</span>
+            </td>
+            <td>Exception thrown in class org.apache.commons.lang3.text.ExtendedMessageFormat at new org.apache.commons.lang3.text.ExtendedMessageFormat(String, Map) will leave the constructor. The object under construction remains partially initialized and may be vulnerable to Finalizer attacks.</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e750" style="display: none;">
+                  <a href="#CT_CONSTRUCTOR_THROW">Bug type CT_CONSTRUCTOR_THROW (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.text.ExtendedMessageFormat<br/>In method new org.apache.commons.lang3.text.ExtendedMessageFormat(String, Map)<br/>At ExtendedMessageFormat.java:[line 137]<br/>At ExtendedMessageFormat.java:[line 137]</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e869');">
+            <td>
+               <span class="priority-2">CT</span>
+            </td>
+            <td>Exception thrown in class org.apache.commons.lang3.time.FastDatePrinter at new org.apache.commons.lang3.time.FastDatePrinter(String, TimeZone, Locale) will leave the constructor. The object under construction remains partially initialized and may be vulnerable to Finalizer attacks.</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e869" style="display: none;">
+                  <a href="#CT_CONSTRUCTOR_THROW">Bug type CT_CONSTRUCTOR_THROW (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.time.FastDatePrinter<br/>In method new org.apache.commons.lang3.time.FastDatePrinter(String, TimeZone, Locale)<br/>At FastDatePrinter.java:[line 1046]<br/>At FastDatePrinter.java:[line 1046]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e130');">
+            <td>
+               <span class="priority-1">ES</span>
+            </td>
+            <td>Comparison of String parameter using == or != in org.apache.commons.lang3.BooleanUtils.toBooleanObject(String)</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e130" style="display: none;">
+                  <a href="#ES_COMPARING_PARAMETER_STRING_WITH_EQ">Bug type ES_COMPARING_PARAMETER_STRING_WITH_EQ (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.BooleanUtils<br/>In method org.apache.commons.lang3.BooleanUtils.toBooleanObject(String)<br/>Actual type String<br/>String constant "true"<br/>Value loaded from str<br/>At BooleanUtils.java:[line 741]</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e266');">
+            <td>
+               <span class="priority-1">ES</span>
+            </td>
+            <td>Comparison of String parameter using == or != in org.apache.commons.lang3.StringUtils.compare(String, String, boolean)</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e266" style="display: none;">
+                  <a href="#ES_COMPARING_PARAMETER_STRING_WITH_EQ">Bug type ES_COMPARING_PARAMETER_STRING_WITH_EQ (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.StringUtils<br/>In method org.apache.commons.lang3.StringUtils.compare(String, String, boolean)<br/>Actual type String<br/>Value loaded from str2<br/>Value loaded from str1<br/>At StringUtils.java:[line 861]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e287');">
+            <td>
+               <span class="priority-1">ES</span>
+            </td>
+            <td>Comparison of String parameter using == or != in org.apache.commons.lang3.StringUtils.compareIgnoreCase(String, String, boolean)</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e287" style="display: none;">
+                  <a href="#ES_COMPARING_PARAMETER_STRING_WITH_EQ">Bug type ES_COMPARING_PARAMETER_STRING_WITH_EQ (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.StringUtils<br/>In method org.apache.commons.lang3.StringUtils.compareIgnoreCase(String, String, boolean)<br/>Actual type String<br/>Value loaded from str2<br/>Value loaded from str1<br/>At StringUtils.java:[line 954]</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e168');">
+            <td>
+               <span class="priority-2">NP</span>
+            </td>
+            <td>org.apache.commons.lang3.BooleanUtils.negate(Boolean) has Boolean return type and returns explicit null</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e168" style="display: none;">
+                  <a href="#NP_BOOLEAN_RETURN_NULL">Bug type NP_BOOLEAN_RETURN_NULL (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.BooleanUtils<br/>In method org.apache.commons.lang3.BooleanUtils.negate(Boolean)<br/>At BooleanUtils.java:[line 264]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e180');">
+            <td>
+               <span class="priority-2">NP</span>
+            </td>
+            <td>org.apache.commons.lang3.BooleanUtils.toBooleanObject(int, int, int, int) has Boolean return type and returns explicit null</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e180" style="display: none;">
+                  <a href="#NP_BOOLEAN_RETURN_NULL">Bug type NP_BOOLEAN_RETURN_NULL (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.BooleanUtils<br/>In method org.apache.commons.lang3.BooleanUtils.toBooleanObject(int, int, int, int)<br/>At BooleanUtils.java:[line 620]</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e192');">
+            <td>
+               <span class="priority-2">NP</span>
+            </td>
+            <td>org.apache.commons.lang3.BooleanUtils.toBooleanObject(Integer) has Boolean return type and returns explicit null</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e192" style="display: none;">
+                  <a href="#NP_BOOLEAN_RETURN_NULL">Bug type NP_BOOLEAN_RETURN_NULL (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.BooleanUtils<br/>In method org.apache.commons.lang3.BooleanUtils.toBooleanObject(Integer)<br/>At BooleanUtils.java:[line 646]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e204');">
+            <td>
+               <span class="priority-2">NP</span>
+            </td>
+            <td>org.apache.commons.lang3.BooleanUtils.toBooleanObject(Integer, Integer, Integer, Integer) has Boolean return type and returns explicit null</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e204" style="display: none;">
+                  <a href="#NP_BOOLEAN_RETURN_NULL">Bug type NP_BOOLEAN_RETURN_NULL (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.BooleanUtils<br/>In method org.apache.commons.lang3.BooleanUtils.toBooleanObject(Integer, Integer, Integer, Integer)<br/>At BooleanUtils.java:[line 685]<br/>Another occurrence at BooleanUtils.java:[line 692]</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e218');">
+            <td>
+               <span class="priority-2">NP</span>
+            </td>
+            <td>org.apache.commons.lang3.BooleanUtils.toBooleanObject(String) has Boolean return type and returns explicit null</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e218" style="display: none;">
+                  <a href="#NP_BOOLEAN_RETURN_NULL">Bug type NP_BOOLEAN_RETURN_NULL (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.BooleanUtils<br/>In method org.apache.commons.lang3.BooleanUtils.toBooleanObject(String)<br/>At BooleanUtils.java:[line 745]<br/>Another occurrence at BooleanUtils.java:[line 823]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e232');">
+            <td>
+               <span class="priority-2">NP</span>
+            </td>
+            <td>org.apache.commons.lang3.BooleanUtils.toBooleanObject(String, String, String, String) has Boolean return type and returns explicit null</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e232" style="display: none;">
+                  <a href="#NP_BOOLEAN_RETURN_NULL">Bug type NP_BOOLEAN_RETURN_NULL (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.BooleanUtils<br/>In method org.apache.commons.lang3.BooleanUtils.toBooleanObject(String, String, String, String)<br/>At BooleanUtils.java:[line 861]<br/>Another occurrence at BooleanUtils.java:[line 868]</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e1020');">
+            <td>
+               <span class="priority-2">PA</span>
+            </td>
+            <td>Primitive field org.apache.commons.lang3.tuple.MutablePair.left is public and set from inside the class, which makes it too exposed. Consider making it private to limit external accessibility.</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e1020" style="display: none;">
+                  <a href="#PA_PUBLIC_PRIMITIVE_ATTRIBUTE">Bug type PA_PUBLIC_PRIMITIVE_ATTRIBUTE (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.tuple.MutablePair<br/>Field org.apache.commons.lang3.tuple.MutablePair.left<br/>At MutablePair.java:[line 138]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e1033');">
+            <td>
+               <span class="priority-2">PA</span>
+            </td>
+            <td>Primitive field org.apache.commons.lang3.tuple.MutablePair.right is public and set from inside the class, which makes it too exposed. Consider making it private to limit external accessibility.</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e1033" style="display: none;">
+                  <a href="#PA_PUBLIC_PRIMITIVE_ATTRIBUTE">Bug type PA_PUBLIC_PRIMITIVE_ATTRIBUTE (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.tuple.MutablePair<br/>Field org.apache.commons.lang3.tuple.MutablePair.right<br/>At MutablePair.java:[line 139]</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e1046');">
+            <td>
+               <span class="priority-2">PA</span>
+            </td>
+            <td>Primitive field org.apache.commons.lang3.tuple.MutableTriple.left is public and set from inside the class, which makes it too exposed. Consider making it private to limit external accessibility.</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e1046" style="display: none;">
+                  <a href="#PA_PUBLIC_PRIMITIVE_ATTRIBUTE">Bug type PA_PUBLIC_PRIMITIVE_ATTRIBUTE (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.tuple.MutableTriple<br/>Field org.apache.commons.lang3.tuple.MutableTriple.left<br/>At MutableTriple.java:[line 122]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e1059');">
+            <td>
+               <span class="priority-2">PA</span>
+            </td>
+            <td>Primitive field org.apache.commons.lang3.tuple.MutableTriple.middle is public and set from inside the class, which makes it too exposed. Consider making it private to limit external accessibility.</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e1059" style="display: none;">
+                  <a href="#PA_PUBLIC_PRIMITIVE_ATTRIBUTE">Bug type PA_PUBLIC_PRIMITIVE_ATTRIBUTE (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.tuple.MutableTriple<br/>Field org.apache.commons.lang3.tuple.MutableTriple.middle<br/>At MutableTriple.java:[line 123]</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e1072');">
+            <td>
+               <span class="priority-2">PA</span>
+            </td>
+            <td>Primitive field org.apache.commons.lang3.tuple.MutableTriple.right is public and set from inside the class, which makes it too exposed. Consider making it private to limit external accessibility.</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e1072" style="display: none;">
+                  <a href="#PA_PUBLIC_PRIMITIVE_ATTRIBUTE">Bug type PA_PUBLIC_PRIMITIVE_ATTRIBUTE (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.tuple.MutableTriple<br/>Field org.apache.commons.lang3.tuple.MutableTriple.right<br/>At MutableTriple.java:[line 124]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e246');">
+            <td>
+               <span class="priority-2">RC</span>
+            </td>
+            <td>Suspicious comparison of Boolean references in org.apache.commons.lang3.BooleanUtils.toBoolean(String)</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e246" style="display: none;">
+                  <a href="#RC_REF_COMPARISON_BAD_PRACTICE_BOOLEAN">Bug type RC_REF_COMPARISON_BAD_PRACTICE_BOOLEAN (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.BooleanUtils<br/>In method org.apache.commons.lang3.BooleanUtils.toBoolean(String)<br/>Actual type Boolean<br/>Value loaded from field java.lang.Boolean.TRUE<br/>At BooleanUtils.java:[line 511]</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e588');">
+            <td>
+               <span class="priority-2">Se</span>
+            </td>
+            <td>The field org.apache.commons.lang3.math.Fraction.toProperString is transient but isn't set by deserialization</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e588" style="display: none;">
+                  <a href="#SE_TRANSIENT_FIELD_NOT_RESTORED">Bug type SE_TRANSIENT_FIELD_NOT_RESTORED (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.math.Fraction<br/>Field org.apache.commons.lang3.math.Fraction.toProperString<br/>In Fraction.java</p>
+            </td>
+         </tr>
+      </table>
+      <h2>
+         <a name="Warnings_CORRECTNESS">Correctness Warnings</a>
+      </h2>
+      <table class="warningtable" width="100%" cellspacing="0">
+         <tr class="tableheader">
+            <th align="left">Code</th>
+            <th align="left">Warning</th>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e977');">
+            <td>
+               <span class="priority-2">SING</span>
+            </td>
+            <td>Class (org.apache.commons.lang3.tuple.ImmutablePair) using singleton design pattern has non-private constructor.</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e977" style="display: none;">
+                  <a href="#SING_SINGLETON_HAS_NONPRIVATE_CONSTRUCTOR">Bug type SING_SINGLETON_HAS_NONPRIVATE_CONSTRUCTOR (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.tuple.ImmutablePair<br/>In method new org.apache.commons.lang3.tuple.ImmutablePair(Object, Object)<br/>At ImmutablePair.java:[lines 179-182]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e990');">
+            <td>
+               <span class="priority-2">SING</span>
+            </td>
+            <td>Class (org.apache.commons.lang3.tuple.ImmutablePair) using singleton design pattern directly or indirectly implements Serializable interface.</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e990" style="display: none;">
+                  <a href="#SING_SINGLETON_IMPLEMENTS_SERIALIZABLE">Bug type SING_SINGLETON_IMPLEMENTS_SERIALIZABLE (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.tuple.ImmutablePair<br/>At ImmutablePair.java:[lines 46-211]</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e999');">
+            <td>
+               <span class="priority-2">SING</span>
+            </td>
+            <td>Class (org.apache.commons.lang3.tuple.ImmutableTriple) using singleton design pattern has non-private constructor.</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e999" style="display: none;">
+                  <a href="#SING_SINGLETON_HAS_NONPRIVATE_CONSTRUCTOR">Bug type SING_SINGLETON_HAS_NONPRIVATE_CONSTRUCTOR (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.tuple.ImmutableTriple<br/>In method new org.apache.commons.lang3.tuple.ImmutableTriple(Object, Object, Object)<br/>At ImmutableTriple.java:[lines 140-144]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e1011');">
+            <td>
+               <span class="priority-2">SING</span>
+            </td>
+            <td>Class (org.apache.commons.lang3.tuple.ImmutableTriple) using singleton design pattern directly or indirectly implements Serializable interface.</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e1011" style="display: none;">
+                  <a href="#SING_SINGLETON_IMPLEMENTS_SERIALIZABLE">Bug type SING_SINGLETON_IMPLEMENTS_SERIALIZABLE (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.tuple.ImmutableTriple<br/>At ImmutableTriple.java:[lines 46-167]</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e782');">
+            <td>
+               <span class="priority-2">UR</span>
+            </td>
+            <td>registry isn't initialized in org.apache.commons.lang3.text.ExtendedMessageFormat.applyPattern(String) when invoked from constructor for superclass</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e782" style="display: none;">
+                  <a href="#UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR">Bug type UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.text.ExtendedMessageFormat<br/>In method org.apache.commons.lang3.text.ExtendedMessageFormat.applyPattern(String)<br/>Field org.apache.commons.lang3.text.ExtendedMessageFormat.registry<br/>Superclass constructor is new java.text.MessageFormat(String)<br/>Call from superclass constructor at MessageFormat.java:[line 362]<br/>Constructor is new org.apache.commons.lang3.text.ExtendedMessageFormat(String, Locale, Map)<br/>Field set (too late) at ExtendedMessageFormat.java:[line 125]<br/>At ExtendedMessageFormat.java:[line 181]</p>
+            </td>
+         </tr>
+      </table>
+      <h2>
+         <a name="Warnings_MALICIOUS_CODE">Malicious code vulnerability Warnings</a>
+      </h2>
+      <table class="warningtable" width="100%" cellspacing="0">
+         <tr class="tableheader">
+            <th align="left">Code</th>
+            <th align="left">Warning</th>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e323');">
+            <td>
+               <span class="priority-2">EI</span>
+            </td>
+            <td>org.apache.commons.lang3.builder.DiffResult.getToStringStyle() may expose internal representation by returning DiffResult.style</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e323" style="display: none;">
+                  <a href="#EI_EXPOSE_REP">Bug type EI_EXPOSE_REP (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.builder.DiffResult<br/>In method org.apache.commons.lang3.builder.DiffResult.getToStringStyle()<br/>Field org.apache.commons.lang3.builder.DiffResult.style<br/>At DiffResult.java:[line 124]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e385');">
+            <td>
+               <span class="priority-2">EI</span>
+            </td>
+            <td>org.apache.commons.lang3.builder.ToStringBuilder.getStringBuffer() may expose internal representation by returning ToStringBuilder.buffer</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e385" style="display: none;">
+                  <a href="#EI_EXPOSE_REP">Bug type EI_EXPOSE_REP (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.builder.ToStringBuilder<br/>In method org.apache.commons.lang3.builder.ToStringBuilder.getStringBuffer()<br/>Field org.apache.commons.lang3.builder.ToStringBuilder.buffer<br/>At ToStringBuilder.java:[line 1002]</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e401');">
+            <td>
+               <span class="priority-2">EI</span>
+            </td>
+            <td>org.apache.commons.lang3.builder.ToStringBuilder.getStyle() may expose internal representation by returning ToStringBuilder.style</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e401" style="display: none;">
+                  <a href="#EI_EXPOSE_REP">Bug type EI_EXPOSE_REP (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.builder.ToStringBuilder<br/>In method org.apache.commons.lang3.builder.ToStringBuilder.getStyle()<br/>Field org.apache.commons.lang3.builder.ToStringBuilder.style<br/>At ToStringBuilder.java:[line 1012]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e572');">
+            <td>
+               <span class="priority-2">EI</span>
+            </td>
+            <td>org.apache.commons.lang3.exception.DefaultExceptionContext.getContextEntries() may expose internal representation by returning DefaultExceptionContext.contextValues</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e572" style="display: none;">
+                  <a href="#EI_EXPOSE_REP">Bug type EI_EXPOSE_REP (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.exception.DefaultExceptionContext<br/>In method org.apache.commons.lang3.exception.DefaultExceptionContext.getContextEntries()<br/>Field org.apache.commons.lang3.exception.DefaultExceptionContext.contextValues<br/>At DefaultExceptionContext.java:[line 63]</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e841');">
+            <td>
+               <span class="priority-2">EI</span>
+            </td>
+            <td>org.apache.commons.lang3.time.FastDateParser.getTimeZone() may expose internal representation by returning FastDateParser.timeZone</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e841" style="display: none;">
+                  <a href="#EI_EXPOSE_REP">Bug type EI_EXPOSE_REP (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.time.FastDateParser<br/>In method org.apache.commons.lang3.time.FastDateParser.getTimeZone()<br/>Field org.apache.commons.lang3.time.FastDateParser.timeZone<br/>At FastDateParser.java:[line 963]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e883');">
+            <td>
+               <span class="priority-2">EI</span>
+            </td>
+            <td>org.apache.commons.lang3.time.FastDatePrinter.getTimeZone() may expose internal representation by returning FastDatePrinter.timeZone</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e883" style="display: none;">
+                  <a href="#EI_EXPOSE_REP">Bug type EI_EXPOSE_REP (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.time.FastDatePrinter<br/>In method org.apache.commons.lang3.time.FastDatePrinter.getTimeZone()<br/>Field org.apache.commons.lang3.time.FastDatePrinter.timeZone<br/>At FastDatePrinter.java:[line 1281]</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e1085');">
+            <td>
+               <span class="priority-2">EI</span>
+            </td>
+            <td>org.apache.commons.lang3.util.FluentBitSet.bitSet() may expose internal representation by returning FluentBitSet.bitSet</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e1085" style="display: none;">
+                  <a href="#EI_EXPOSE_REP">Bug type EI_EXPOSE_REP (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.util.FluentBitSet<br/>In method org.apache.commons.lang3.util.FluentBitSet.bitSet()<br/>Field org.apache.commons.lang3.util.FluentBitSet.bitSet<br/>At FluentBitSet.java:[line 121]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e339');">
+            <td>
+               <span class="priority-2">EI2</span>
+            </td>
+            <td>org.apache.commons.lang3.builder.EqualsBuilder.setBypassReflectionClasses(List) may expose internal representation by storing an externally mutable object into EqualsBuilder.bypassReflectionClasses</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e339" style="display: none;">
+                  <a href="#EI_EXPOSE_REP2">Bug type EI_EXPOSE_REP2 (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.builder.EqualsBuilder<br/>In method org.apache.commons.lang3.builder.EqualsBuilder.setBypassReflectionClasses(List)<br/>Field org.apache.commons.lang3.builder.EqualsBuilder.bypassReflectionClasses<br/>Local variable named bypassReflectionClasses<br/>At EqualsBuilder.java:[line 1049]</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e554');">
+            <td>
+               <span class="priority-2">EI2</span>
+            </td>
+            <td>new org.apache.commons.lang3.event.EventListenerSupport$ProxyInvocationHandler(EventListenerSupport, FailableConsumer) may expose internal representation by storing an externally mutable object into EventListenerSupport$ProxyInvocationHandler.this$0</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e554" style="display: none;">
+                  <a href="#EI_EXPOSE_REP2">Bug type EI_EXPOSE_REP2 (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.event.EventListenerSupport$ProxyInvocationHandler<br/>In method new org.apache.commons.lang3.event.EventListenerSupport$ProxyInvocationHandler(EventListenerSupport, FailableConsumer)<br/>Field org.apache.commons.lang3.event.EventListenerSupport$ProxyInvocationHandler.this$0<br/>Local variable named this$0<br/>At EventListenerSupport.java:[line 94]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e764');">
+            <td>
+               <span class="priority-2">EI2</span>
+            </td>
+            <td>new org.apache.commons.lang3.text.ExtendedMessageFormat(String, Locale, Map) may expose internal representation by storing an externally mutable object into ExtendedMessageFormat.registry</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e764" style="display: none;">
+                  <a href="#EI_EXPOSE_REP2">Bug type EI_EXPOSE_REP2 (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.text.ExtendedMessageFormat<br/>In method new org.apache.commons.lang3.text.ExtendedMessageFormat(String, Locale, Map)<br/>Field org.apache.commons.lang3.text.ExtendedMessageFormat.registry<br/>Local variable named registry<br/>At ExtendedMessageFormat.java:[line 125]</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e540');">
+            <td>
+               <span class="priority-2">MC</span>
+            </td>
+            <td>Overridable method getContextClassLoader is called from readObject.</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e540" style="display: none;">
+                  <a href="#MC_OVERRIDABLE_METHOD_CALL_IN_READ_OBJECT">Bug type MC_OVERRIDABLE_METHOD_CALL_IN_READ_OBJECT (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.event.EventListenerSupport<br/>In method org.apache.commons.lang3.event.EventListenerSupport.readObject(ObjectInputStream)<br/>Value getContextClassLoader<br/>At EventListenerSupport.java:[line 328]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e152');">
+            <td>
+               <span class="priority-2">MS</span>
+            </td>
+            <td>Public static org.apache.commons.lang3.BooleanUtils.values() may expose internal representation by returning BooleanUtils.BOOLEAN_LIST</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e152" style="display: none;">
+                  <a href="#MS_EXPOSE_REP">Bug type MS_EXPOSE_REP (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.BooleanUtils<br/>In method org.apache.commons.lang3.BooleanUtils.values()<br/>Field org.apache.commons.lang3.BooleanUtils.BOOLEAN_LIST<br/>At BooleanUtils.java:[line 1150]</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e417');">
+            <td>
+               <span class="priority-2">MS</span>
+            </td>
+            <td>Public static org.apache.commons.lang3.builder.ToStringBuilder.getDefaultStyle() may expose internal representation by returning ToStringBuilder.defaultStyle</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e417" style="display: none;">
+                  <a href="#MS_EXPOSE_REP">Bug type MS_EXPOSE_REP (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.builder.ToStringBuilder<br/>In method org.apache.commons.lang3.builder.ToStringBuilder.getDefaultStyle()<br/>Field org.apache.commons.lang3.builder.ToStringBuilder.defaultStyle<br/>At ToStringBuilder.java:[line 116]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e927');">
+            <td>
+               <span class="priority-2">MS</span>
+            </td>
+            <td>Public static org.apache.commons.lang3.time.FastTimeZone.getGmtTimeZone() may expose internal representation by returning FastTimeZone.GREENWICH</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e927" style="display: none;">
+                  <a href="#MS_EXPOSE_REP">Bug type MS_EXPOSE_REP (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.time.FastTimeZone<br/>In method org.apache.commons.lang3.time.FastTimeZone.getGmtTimeZone()<br/>Field org.apache.commons.lang3.time.FastTimeZone.GREENWICH<br/>At FastTimeZone.java:[line 39]</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e943');">
+            <td>
+               <span class="priority-2">MS</span>
+            </td>
+            <td>Public static org.apache.commons.lang3.time.FastTimeZone.getGmtTimeZone(String) may expose internal representation by returning FastTimeZone.GREENWICH</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e943" style="display: none;">
+                  <a href="#MS_EXPOSE_REP">Bug type MS_EXPOSE_REP (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.time.FastTimeZone<br/>In method org.apache.commons.lang3.time.FastTimeZone.getGmtTimeZone(String)<br/>Field org.apache.commons.lang3.time.FastTimeZone.GREENWICH<br/>At FastTimeZone.java:[line 51]<br/>Another occurrence at FastTimeZone.java:[line 59]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e961');">
+            <td>
+               <span class="priority-2">MS</span>
+            </td>
+            <td>Public static org.apache.commons.lang3.tuple.ImmutablePair.nullPair() may expose internal representation by returning ImmutablePair.NULL</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e961" style="display: none;">
+                  <a href="#MS_EXPOSE_REP">Bug type MS_EXPOSE_REP (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.tuple.ImmutablePair<br/>In method org.apache.commons.lang3.tuple.ImmutablePair.nullPair()<br/>Field org.apache.commons.lang3.tuple.ImmutablePair.NULL<br/>At ImmutablePair.java:[line 98]</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e710');">
+            <td>
+               <span class="priority-2">REFLF</span>
+            </td>
+            <td>Public method org.apache.commons.lang3.reflect.FieldUtils.getDeclaredField(Class, String, boolean) uses reflection to modify a field it gets in its parameter which could increase the accessibility of any class.</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e710" style="display: none;">
+                  <a href="#REFLF_REFLECTION_MAY_INCREASE_ACCESSIBILITY_OF_FIELD">Bug type REFLF_REFLECTION_MAY_INCREASE_ACCESSIBILITY_OF_FIELD (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.reflect.FieldUtils<br/>In method org.apache.commons.lang3.reflect.FieldUtils.getDeclaredField(Class, String, boolean)<br/>At FieldUtils.java:[line 127]</p>
+            </td>
+         </tr>
+      </table>
+      <h2>
+         <a name="Warnings_STYLE">Dodgy code Warnings</a>
+      </h2>
+      <table class="warningtable" width="100%" cellspacing="0">
+         <tr class="tableheader">
+            <th align="left">Code</th>
+            <th align="left">Warning</th>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e4');">
+            <td>
+               <span class="priority-2">NP</span>
+            </td>
+            <td>Load of known null value in org.apache.commons.lang3.ArrayUtils.addFirst(byte[], byte)</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e4" style="display: none;">
+                  <a href="#NP_LOAD_OF_KNOWN_NULL_VALUE">Bug type NP_LOAD_OF_KNOWN_NULL_VALUE (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.ArrayUtils<br/>In method org.apache.commons.lang3.ArrayUtils.addFirst(byte[], byte)<br/>Value loaded from array<br/>At ArrayUtils.java:[line 1184]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e18');">
+            <td>
+               <span class="priority-2">NP</span>
+            </td>
+            <td>Load of known null value in org.apache.commons.lang3.ArrayUtils.addFirst(char[], char)</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e18" style="display: none;">
+                  <a href="#NP_LOAD_OF_KNOWN_NULL_VALUE">Bug type NP_LOAD_OF_KNOWN_NULL_VALUE (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.ArrayUtils<br/>In method org.apache.commons.lang3.ArrayUtils.addFirst(char[], char)<br/>Value loaded from array<br/>At ArrayUtils.java:[line 1210]</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e32');">
+            <td>
+               <span class="priority-2">NP</span>
+            </td>
+            <td>Load of known null value in org.apache.commons.lang3.ArrayUtils.addFirst(double[], double)</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e32" style="display: none;">
+                  <a href="#NP_LOAD_OF_KNOWN_NULL_VALUE">Bug type NP_LOAD_OF_KNOWN_NULL_VALUE (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.ArrayUtils<br/>In method org.apache.commons.lang3.ArrayUtils.addFirst(double[], double)<br/>Value loaded from array<br/>At ArrayUtils.java:[line 1236]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e46');">
+            <td>
+               <span class="priority-2">NP</span>
+            </td>
+            <td>Load of known null value in org.apache.commons.lang3.ArrayUtils.addFirst(float[], float)</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e46" style="display: none;">
+                  <a href="#NP_LOAD_OF_KNOWN_NULL_VALUE">Bug type NP_LOAD_OF_KNOWN_NULL_VALUE (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.ArrayUtils<br/>In method org.apache.commons.lang3.ArrayUtils.addFirst(float[], float)<br/>Value loaded from array<br/>At ArrayUtils.java:[line 1262]</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e60');">
+            <td>
+               <span class="priority-2">NP</span>
+            </td>
+            <td>Load of known null value in org.apache.commons.lang3.ArrayUtils.addFirst(int[], int)</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e60" style="display: none;">
+                  <a href="#NP_LOAD_OF_KNOWN_NULL_VALUE">Bug type NP_LOAD_OF_KNOWN_NULL_VALUE (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.ArrayUtils<br/>In method org.apache.commons.lang3.ArrayUtils.addFirst(int[], int)<br/>Value loaded from array<br/>At ArrayUtils.java:[line 1288]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e74');">
+            <td>
+               <span class="priority-2">NP</span>
+            </td>
+            <td>Load of known null value in org.apache.commons.lang3.ArrayUtils.addFirst(long[], long)</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e74" style="display: none;">
+                  <a href="#NP_LOAD_OF_KNOWN_NULL_VALUE">Bug type NP_LOAD_OF_KNOWN_NULL_VALUE (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.ArrayUtils<br/>In method org.apache.commons.lang3.ArrayUtils.addFirst(long[], long)<br/>Value loaded from array<br/>At ArrayUtils.java:[line 1314]</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e88');">
+            <td>
+               <span class="priority-2">NP</span>
+            </td>
+            <td>Load of known null value in org.apache.commons.lang3.ArrayUtils.addFirst(Object[], Object)</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e88" style="display: none;">
+                  <a href="#NP_LOAD_OF_KNOWN_NULL_VALUE">Bug type NP_LOAD_OF_KNOWN_NULL_VALUE (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.ArrayUtils<br/>In method org.apache.commons.lang3.ArrayUtils.addFirst(Object[], Object)<br/>Value loaded from array<br/>At ArrayUtils.java:[line 1371]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e102');">
+            <td>
+               <span class="priority-2">NP</span>
+            </td>
+            <td>Load of known null value in org.apache.commons.lang3.ArrayUtils.addFirst(short[], short)</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e102" style="display: none;">
+                  <a href="#NP_LOAD_OF_KNOWN_NULL_VALUE">Bug type NP_LOAD_OF_KNOWN_NULL_VALUE (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.ArrayUtils<br/>In method org.apache.commons.lang3.ArrayUtils.addFirst(short[], short)<br/>Value loaded from array<br/>At ArrayUtils.java:[line 1340]</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e116');">
+            <td>
+               <span class="priority-2">NP</span>
+            </td>
+            <td>Load of known null value in org.apache.commons.lang3.ArrayUtils.addFirst(boolean[], boolean)</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e116" style="display: none;">
+                  <a href="#NP_LOAD_OF_KNOWN_NULL_VALUE">Bug type NP_LOAD_OF_KNOWN_NULL_VALUE (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.ArrayUtils<br/>In method org.apache.commons.lang3.ArrayUtils.addFirst(boolean[], boolean)<br/>Value loaded from array<br/>At ArrayUtils.java:[line 1158]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e433');">
+            <td>
+               <span class="priority-1">RCN</span>
+            </td>
+            <td>Redundant nullcheck of string1, which is known to be non-null in org.apache.commons.lang3.compare.ObjectToStringComparator.compare(Object, Object)</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e433" style="display: none;">
+                  <a href="#RCN_REDUNDANT_NULLCHECK_OF_NONNULL_VALUE">Bug type RCN_REDUNDANT_NULLCHECK_OF_NONNULL_VALUE (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.compare.ObjectToStringComparator<br/>In method org.apache.commons.lang3.compare.ObjectToStringComparator.compare(Object, Object)<br/>Value loaded from string1<br/>Return value of Object.toString() of type String<br/>Redundant null check at ObjectToStringComparator.java:[line 61]<br/>Another occurrence at ObjectToStringComparator.java:[line 58]</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e452');">
+            <td>
+               <span class="priority-2">RCN</span>
+            </td>
+            <td>Redundant nullcheck of string2, which is known to be non-null in org.apache.commons.lang3.compare.ObjectToStringComparator.compare(Object, Object)</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e452" style="display: none;">
+                  <a href="#RCN_REDUNDANT_NULLCHECK_OF_NONNULL_VALUE">Bug type RCN_REDUNDANT_NULLCHECK_OF_NONNULL_VALUE (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.compare.ObjectToStringComparator<br/>In method org.apache.commons.lang3.compare.ObjectToStringComparator.compare(Object, Object)<br/>Value loaded from string2<br/>Return value of Object.toString() of type String<br/>Redundant null check at ObjectToStringComparator.java:[line 64]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e601');">
+            <td>
+               <span class="priority-2">SF</span>
+            </td>
+            <td>Switch statement found in org.apache.commons.lang3.math.NumberUtils.createNumber(String) where one case falls through to the next case</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e601" style="display: none;">
+                  <a href="#SF_SWITCH_FALLTHROUGH">Bug type SF_SWITCH_FALLTHROUGH (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.math.NumberUtils<br/>In method org.apache.commons.lang3.math.NumberUtils.createNumber(String)<br/>At NumberUtils.java:[lines 423-430]</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e613');">
+            <td>
+               <span class="priority-2">SF</span>
+            </td>
+            <td>Switch statement found in org.apache.commons.lang3.math.NumberUtils.createNumber(String) where default case is missing</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e613" style="display: none;">
+                  <a href="#SF_SWITCH_NO_DEFAULT">Bug type SF_SWITCH_NO_DEFAULT (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.math.NumberUtils<br/>In method org.apache.commons.lang3.math.NumberUtils.createNumber(String)<br/>At NumberUtils.java:[lines 398-439]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e825');">
+            <td>
+               <span class="priority-2">SF</span>
+            </td>
+            <td>Switch statement found in org.apache.commons.lang3.time.DateUtils.getFragment(Calendar, int, TimeUnit) where one case falls through to the next case</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e825" style="display: none;">
+                  <a href="#SF_SWITCH_FALLTHROUGH">Bug type SF_SWITCH_FALLTHROUGH (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.time.DateUtils<br/>In method org.apache.commons.lang3.time.DateUtils.getFragment(Calendar, int, TimeUnit)<br/>At DateUtils.java:[lines 433-436]<br/>Another occurrence at DateUtils.java:[lines 436-439]<br/>Another occurrence at DateUtils.java:[lines 439-442]</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e857');">
+            <td>
+               <span class="priority-2">SF</span>
+            </td>
+            <td>Switch statement found in org.apache.commons.lang3.time.FastDateParser.simpleQuote(StringBuilder, String) where default case is missing</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e857" style="display: none;">
+                  <a href="#SF_SWITCH_NO_DEFAULT">Bug type SF_SWITCH_NO_DEFAULT (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.time.FastDateParser<br/>In method org.apache.commons.lang3.time.FastDateParser.simpleQuote(StringBuilder, String)<br/>At FastDateParser.java:[lines 741-754]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e899');">
+            <td>
+               <span class="priority-2">SF</span>
+            </td>
+            <td>Switch statement found in org.apache.commons.lang3.time.FastDatePrinter.appendFullDigits(Appendable, int, int) where one case falls through to the next case</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e899" style="display: none;">
+                  <a href="#SF_SWITCH_FALLTHROUGH">Bug type SF_SWITCH_FALLTHROUGH (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.time.FastDatePrinter<br/>In method org.apache.commons.lang3.time.FastDatePrinter.appendFullDigits(Appendable, int, int)<br/>At FastDatePrinter.java:[lines 949-951]<br/>Another occurrence at FastDatePrinter.java:[lines 955-958]<br/>Another occurrence at FastDatePrinter.java:[lines 962-965]</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e915');">
+            <td>
+               <span class="priority-2">SF</span>
+            </td>
+            <td>Switch statement found in org.apache.commons.lang3.time.FastDatePrinter.appendFullDigits(Appendable, int, int) where default case is missing</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e915" style="display: none;">
+                  <a href="#SF_SWITCH_NO_DEFAULT">Bug type SF_SWITCH_NO_DEFAULT (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.time.FastDatePrinter<br/>In method org.apache.commons.lang3.time.FastDatePrinter.appendFullDigits(Appendable, int, int)<br/>At FastDatePrinter.java:[lines 946-965]</p>
+            </td>
+         </tr>
+      </table>
+      <h1>
+         <a name="Details">Details</a>
+      </h1>
+      <h2>
+         <a name="CN_IDIOM_NO_SUPER_CALL">CN_IDIOM_NO_SUPER_CALL: clone method does not call super.clone()</a>
+      </h2>
+
+<p> This non-final class defines a clone() method that does not call super.clone().
+If this class ("<i>A</i>") is extended by a subclass ("<i>B</i>"),
+and the subclass <i>B</i> calls super.clone(), then it is likely that
+<i>B</i>'s clone() method will return an object of type <i>A</i>,
+which violates the standard contract for clone().</p>
+
+<p> If all clone() methods call super.clone(), then they are guaranteed
+to use Object.clone(), which always returns an object of the correct type.</p>
+
+    <h2>
+         <a name="CT_CONSTRUCTOR_THROW">CT_CONSTRUCTOR_THROW: Be wary of letting constructors throw exceptions.</a>
+      </h2>
+      
+            <p>Classes that throw exceptions in their constructors are vulnerable to Finalizer attacks</p>
+
+            <p>A finalizer attack can be prevented, by declaring the class final, using an empty finalizer declared as final, or by a clever use of a private constructor.</p>
+
+            <p>See <a href="https://wiki.sei.cmu.edu/confluence/display/java/OBJ11-J.+Be+wary+of+letting+constructors+throw+exceptions"><code>SEI CERT Rule OBJ-11</code></a>
+            for more information.
+            </p>
+            
+    <h2>
+         <a name="EI_EXPOSE_REP">EI_EXPOSE_REP: May expose internal representation by returning reference to mutable object</a>
+      </h2>
+
+  <p> Returning a reference to a mutable object value stored in one of the object's fields
+  exposes the internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Returning a new copy of the object is better approach in many situations.</p>
+
+    <h2>
+         <a name="EI_EXPOSE_REP2">EI_EXPOSE_REP2: May expose internal representation by incorporating reference to mutable object</a>
+      </h2>
+
+  <p> This code stores a reference to an externally mutable object into the
+  internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Storing a copy of the object is better approach in many situations.</p>
+
+    <h2>
+         <a name="ES_COMPARING_PARAMETER_STRING_WITH_EQ">ES_COMPARING_PARAMETER_STRING_WITH_EQ: Comparison of String parameter using == or !=</a>
+      </h2>
+
+  <p>This code compares a <code>java.lang.String</code> parameter for reference
+equality using the == or != operators. Requiring callers to
+pass only String constants or interned strings to a method is unnecessarily
+fragile, and rarely leads to measurable performance gains. Consider
+using the <code>equals(Object)</code> method instead.</p>
+
+    <h2>
+         <a name="MC_OVERRIDABLE_METHOD_CALL_IN_READ_OBJECT">MC_OVERRIDABLE_METHOD_CALL_IN_READ_OBJECT: An overridable method is called from the readObject method.</a>
+      </h2>
+      <p>
+      The readObject() method must not call any overridable methods. Invoking overridable methods from the readObject()
+      method can provide the overriding method with access to the object's state before it is fully initialized. This
+      premature access is possible because, in deserialization, readObject plays the role of object constructor and
+      therefore object initialization is not complete until readObject exits.</p>
+      <p>
+      <br/>
+      See SEI CERT rule <a href="https://wiki.sei.cmu.edu/confluence/display/java/SER09-J.+Do+not+invoke+overridable+methods+from+the+readObject%28%29+method">
+      SER09-J. Do not invoke overridable methods from the readObject() method</a>.
+      </p>
+    <h2>
+         <a name="MS_EXPOSE_REP">MS_EXPOSE_REP: Public static method may expose internal representation by returning a mutable object or array</a>
+      </h2>
+
+  <p> A public static method returns a reference to a mutable object or
+   an array that is part of the static state of the class.
+   Any code that calls this method can freely modify
+   the underlying array.
+   One fix is to return a copy of the array.</p>
+
+    <h2>
+         <a name="NP_LOAD_OF_KNOWN_NULL_VALUE">NP_LOAD_OF_KNOWN_NULL_VALUE: Load of known null value</a>
+      </h2>
+
+  <p> The variable referenced at this point is known to be null due to an earlier
+   check against null. Although this is valid, it might be a mistake (perhaps you
+intended to refer to a different variable, or perhaps the earlier check to see if the
+variable is null should have been a check to see if it was non-null).
+</p>
+
+    <h2>
+         <a name="NP_BOOLEAN_RETURN_NULL">NP_BOOLEAN_RETURN_NULL: Method with Boolean return type returns explicit null</a>
+      </h2>
+       
+       <p>
+    A method that returns either Boolean.TRUE, Boolean.FALSE or null is an accident waiting to happen.
+    This method can be invoked as though it returned a value of type boolean, and
+    the compiler will insert automatic unboxing of the Boolean value. If a null value is returned,
+    this will result in a NullPointerException.
+       </p>
+       
+       <h2>
+         <a name="PA_PUBLIC_PRIMITIVE_ATTRIBUTE">PA_PUBLIC_PRIMITIVE_ATTRIBUTE: Primitive field is public</a>
+      </h2>
+      
+    <p>
+    <a href="https://wiki.sei.cmu.edu/confluence/display/java/OBJ01-J.+Limit+accessibility+of+fields">SEI CERT rule OBJ01-J</a> requires that accessibility to fields must be limited.
+    Otherwise, the values of the fields may be manipulated from outside the class, which may be unexpected or
+    undesired behaviour.
+    In general, requiring that no fields are allowed to be public is overkill and unrealistic. Even
+    the rule mentions that final fields may be public. Besides final fields, there may be other
+    usages for public fields: some public fields may serve as "flags" that affect the behavior of
+    the class. Such flag fields are expected to be read by the current instance (or the current
+    class, in case of static fields), but written by others. If a field is both written by the
+    methods of the current instance (or the current class, in case of static fields) and from the
+    outside, the code is suspicious. Consider making these fields private and provide appropriate
+    setters, if necessary. Please note that constructors, initializers and finalizers are
+    exceptions, if only they write the field inside the class, the field is not considered as
+    written by the class itself.</p>
+    
+    <h2>
+         <a name="RC_REF_COMPARISON_BAD_PRACTICE_BOOLEAN">RC_REF_COMPARISON_BAD_PRACTICE_BOOLEAN: Suspicious reference comparison of Boolean values</a>
+      </h2>
+
+<p> This method compares two Boolean values using the == or != operator.
+Normally, there are only two Boolean values (Boolean.TRUE and Boolean.FALSE),
+but it is possible to create other Boolean objects using the <code>new Boolean(b)</code>
+constructor. It is best to avoid such objects, but if they do exist,
+then checking Boolean objects for equality using == or != will give results
+than are different than you would get using <code>.equals(...)</code>.
+</p>
+
+    <h2>
+         <a name="RCN_REDUNDANT_NULLCHECK_OF_NONNULL_VALUE">RCN_REDUNDANT_NULLCHECK_OF_NONNULL_VALUE: Redundant nullcheck of value known to be non-null</a>
+      </h2>
+
+<p> This method contains a redundant check of a known non-null value against
+the constant null.</p>
+
+    <h2>
+         <a name="REFLF_REFLECTION_MAY_INCREASE_ACCESSIBILITY_OF_FIELD">REFLF_REFLECTION_MAY_INCREASE_ACCESSIBILITY_OF_FIELD: Public method uses reflection to modify a field it gets in its parameter which could increase the accessibility of any class</a>
+      </h2>
+      
+        <p>
+        <a href="https://wiki.sei.cmu.edu/confluence/display/java/SEC05-J.+Do+not+use+reflection+to+increase+accessibility+of+classes%2C+methods%2C+or+fields">SEI CERT SEC05-J</a> rule forbids the use of reflection to increase accessibility of classes, methods or fields. If
+        a class in a package provides a public method which takes an instance of java.lang.reflect.Field as its
+        parameter and calls a setter (or setAccessible()) method then it increases accessibility of fields in the same
+        package which are private, protected or package private. An attacker code may call this method and pass such
+        field to change it. This should be avoided by either making the method non-public or by checking for package
+        access permission on the package.
+        </p>
+    <h2>
+         <a name="SF_SWITCH_NO_DEFAULT">SF_SWITCH_NO_DEFAULT: Switch statement found where default case is missing</a>
+      </h2>
+
+  <p> This method contains a switch statement where default case is missing.
+  Usually you need to provide a default case.</p>
+  <p>Because the analysis only looks at the generated bytecode, this warning can be incorrect triggered if
+the default case is at the end of the switch statement and the switch statement doesn't contain break statements for other
+cases.
+
+    <h2>
+         <a name="SF_SWITCH_FALLTHROUGH">SF_SWITCH_FALLTHROUGH: Switch statement found where one case falls through to the next case</a>
+      </h2>
+
+  <p> This method contains a switch statement where one case branch will fall through to the next case.
+  Usually you need to end this case with a break or return.</p>
+
+    <h2>
+         <a name="SING_SINGLETON_IMPLEMENTS_SERIALIZABLE">SING_SINGLETON_IMPLEMENTS_SERIALIZABLE: Class using singleton design pattern directly or indirectly implements Serializable interface.</a>
+      </h2>
+      
+        <p>
+        This class (using singleton design pattern) directly or indirectly implements the Serializable interface, which allows the class to be serialized.<br>
+        Deserialization makes multiple instantiation of a singleton class possible, and therefore should be avoided.<br><br>
+
+        <a href="https://wiki.sei.cmu.edu/confluence/display/java/MSC07-J.+Prevent+multiple+instantiations+of+singleton+objects">SEI CERT MSC07-J</a> rule
+        </p>
+    <h2>
+         <a name="SING_SINGLETON_HAS_NONPRIVATE_CONSTRUCTOR">SING_SINGLETON_HAS_NONPRIVATE_CONSTRUCTOR: Class using singleton design pattern has non-private constructor.</a>
+      </h2>
+      
+        <p>
+        This class is using singleton design pattern and has non-private constructor (please note that a default constructor might exist which is not private). Given that, it is possible to create a copy of the object, thus violating the singleton pattern.<br>
+        The easier solution would be making the constructor private.<br><br>
+
+        <a href="https://wiki.sei.cmu.edu/confluence/display/java/MSC07-J.+Prevent+multiple+instantiations+of+singleton+objects">SEI CERT MSC07-J</a> rule
+        </p>
+    <h2>
+         <a name="SE_TRANSIENT_FIELD_NOT_RESTORED">SE_TRANSIENT_FIELD_NOT_RESTORED: Transient field that isn't set by deserialization.</a>
+      </h2>
+
+  <p> This class contains a field that is updated at multiple places in the class, thus it seems to be part of the state of the class. However, since the field is marked as transient and not set in readObject or readResolve, it will contain the default value in any
+deserialized instance of the class.
+</p>
+
+    <h2>
+         <a name="UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR">UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR: Uninitialized read of field method called from constructor of superclass</a>
+      </h2>
+
+  <p> This method is invoked in the constructor of the superclass. At this point,
+    the fields of the class have not yet initialized.</p>
+<p>To make this more concrete, consider the following classes:</p>
+<pre><code>abstract class A {
+    int hashCode;
+    abstract Object getValue();
+
+    A() {
+        hashCode = getValue().hashCode();
+    }
+}
+
+class B extends A {
+    Object value;
+
+    B(Object v) {
+        this.value = v;
+    }
+
+    Object getValue() {
+        return value;
+    }
+}
+</code></pre>
+<p>When a <code>B</code> is constructed,
+the constructor for the <code>A</code> class is invoked
+<em>before</em> the constructor for <code>B</code> sets <code>value</code>.
+Thus, when the constructor for <code>A</code> invokes <code>getValue</code>,
+an uninitialized value is read for <code>value</code>.
+</p>
+
+    </body>
+</html>
