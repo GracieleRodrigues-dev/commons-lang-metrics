@@ -6,8 +6,8 @@ import requests
 GITHUB_API_URL = "https://api.github.com/repos/apache/commons-lang/tags"
 REPO_DIR = "apache_commons_repo"  # Nome do diretório onde o repositório será clonado
 MAVEN_PATH = "C:/apache-maven-3.9.9/bin/mvn.cmd"  # Caminho do Maven
-SPOTBUGS_PATH = "C:/Users/graci/Documents/spotbugs-4.8.6/bin/spotbugs.bat"  # Diretório do spotBugs
-OUTPUT_DIR = "C:/Users/graci/Documents/commons-lang-metrics/spotbugs_reports"  # Diretório onde será salvo o resultado do spotBugs
+SPOTBUGS_PATH = "C:/spotbugs-4.8.6/bin/spotbugs.bat"  # Diretório do spotBugs
+OUTPUT_DIR = "C:/Users/felip/Documents/UDESC/75QUA/commons-lang-metrics/spotbugs_reports"  # Diretório onde será salvo o resultado do spotBugs
 
 def fetch_releases(limit=20): #20 releases
     """Busca as últimas releases no GitHub."""
