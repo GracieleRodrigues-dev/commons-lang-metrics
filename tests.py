@@ -2,6 +2,7 @@ import os
 import subprocess
 import requests
 import csv
+import shutil
 import xml.etree.ElementTree as ET
 
 # URLs e configurações
@@ -13,6 +14,8 @@ MAVEN_PATH = "C:/apache-maven-3.9.9/bin/mvn.cmd"  # Caminho do Maven
 OUTPUT_REPORTS_DIR = "jacoco_reports"
 CSV_OUTPUT_PATH = os.path.join(OUTPUT_REPORTS_DIR, "jacoco_metrics.csv")
 JACOCO_REPORT_PATH = os.path.join(REPO_DIR, "target", "site", "jacoco", "jacoco.xml")
+JACOCO_CSV_PATH = os.path.join(REPO_DIR, "target", "site", "jacoco", "jacoco.csv")
+COVERAGE_BY_RELEASE_DIR = os.path.join(OUTPUT_REPORTS_DIR, "jacoco_coverage_by_release")
 RELEASES_NUMBER = 20
 
 # Função para clonar o repositório
@@ -127,6 +130,7 @@ def process_releases(releases_number=20):
                 for metric, values in metrics.items():
                     print(f"{metric}: {values['coverage']:.2f}% ({values['covered']}/{values['total']})")
                     
+                copy_and_rename_jacoco_files(name)
                 print(f"Análise Jacoco concluída para a tag {name}.\n")
                 releases_number = releases_number - 1
         else:
@@ -136,6 +140,31 @@ def process_releases(releases_number=20):
             break
 
         reset_release(name)
+
+def copy_and_rename_jacoco_files(release_name):
+    """
+    Copia e renomeia os arquivos jacoco.xml e jacoco.csv para a pasta 'jacoco_coverage_by_release'.
+    
+    Args:
+        release_name (str): Nome da release para identificar os arquivos.
+    """
+    try:
+        # Substitui caracteres inválidos no nome da release
+        sanitized_release_name = release_name.replace("/", "_")
+
+        if os.path.exists(JACOCO_REPORT_PATH):
+            new_xml_path = os.path.join(COVERAGE_BY_RELEASE_DIR, f"jacoco_{sanitized_release_name}.xml")
+            shutil.copy(JACOCO_REPORT_PATH, new_xml_path)
+            print(f"Arquivo {JACOCO_REPORT_PATH} copiado para {new_xml_path}.")
+        
+        if os.path.exists(JACOCO_CSV_PATH):
+            new_csv_path = os.path.join(COVERAGE_BY_RELEASE_DIR, f"jacoco_{sanitized_release_name}.csv")
+            shutil.copy(JACOCO_CSV_PATH, new_csv_path)
+            print(f"Arquivo {JACOCO_CSV_PATH} copiado para {new_csv_path}.")
+        else:
+            print(f"Arquivo CSV para a release {release_name} não encontrado.")
+    except Exception as e:
+        print(f"Erro ao copiar e renomear arquivos JaCoCo para a release {release_name}: {e}")
 
 def reset_release(name):
     try:
@@ -191,9 +220,6 @@ def update_jacoco_skip(skip_value=False):
 
 # Executa o script
 if __name__ == "__main__":
+    os.makedirs(COVERAGE_BY_RELEASE_DIR, exist_ok=True)
     process_releases()
-    """if update_jacoco_skip(skip_value=False):
-        print("Propriedade <jacoco.skip> ajustada com sucesso.")
-    else:
-        print("Ajuste de <jacoco.skip> falhou ou a propriedade não foi encontrada.")"""
     #teste_busca_releases()
